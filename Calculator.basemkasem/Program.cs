@@ -7,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         bool endApp = false;
+        Calculator calculator = new Calculator();
         // Display title as the C# console calculator app.
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
@@ -15,8 +16,8 @@ class Program
         {
             // Declare variables and set to empty.
             // Use Nullable types (with ?) to match type of System.Console.ReadLine
-            string? numInput1 = "";
-            string? numInput2 = "";
+            string? numInput1;
+            string? numInput2;
             double result = 0;
 
             // Ask the user to type the first number.
@@ -60,7 +61,7 @@ class Program
             {
                 try
                 {
-                    result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result))
                     {
                         Console.WriteLine("This operation will result in a mathematical error.\n");
@@ -80,6 +81,7 @@ class Program
 
             Console.WriteLine("\n"); // Friendly linespacing.
         }
+        calculator.Finish();
         return;
     }
 }
